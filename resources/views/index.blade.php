@@ -2,53 +2,63 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>My System</title>
+	<title>REST API</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+	
 	<div class="container mt-5 pt-5">
-		<table class="table table-striped">
-		  <thead>
-		    <tr>
-		      <th scope="col">id</th>
-		      <th scope="col">name</th>
-		      <th scope="col">email</th>
-		      <th scope="col">action</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		  	@foreach($data as $datas)
-		  	<tr>
-		      <th scope="row">{{$datas->id}}</th>
-		      <td>{{$datas->name}}</td>
-		      <td>{{$datas->email}}</td>
-		      <td>
-		      	<a href="{{route('edit', $datas->id)}}" class="btn btn-primary">Edit</a>
-		      	<a href="{{route('delete', $datas->id)}}" class="btn btn-danger">Delete</a>
-		      </td>
-		    </tr>
-		  	@endforeach
-		  </tbody>
-		</table>
-	</div>
-	<div class="container mt-5 pt-5">
-		<form action="/api/" method="post">
-			@csrf
-	  	 	<div class="form-group">
-			    <label for="exampleInputName">Name</label>
-			    <input type="text" class="form-control" id="exampleInputName" placeholder="Name" name="name">
-			  	</div>
-		  	<div>
-				<label for="exampleInputEmail1">Email address</label>
-				<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+		<h2>Create Data</h2>
+		<br>
+		<hr>
+		<br>
+		<div class="row">
+			<div class="col-md-4">
 				
-		  	</div>
-		  	<div class="form-group">
-			    <label for="exampleInputPassword1">Password</label>
-			    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
-		  	</div>
-		  	<button type="submit" class="btn btn-primary">Submit</button>
-		</form>
+				<form action="/api/" method="post">
+					@csrf
+			  	 	<div class="form-group">
+					    <label for="exampleInputName">Name</label>
+					    <input type="text" class="form-control" name="name">
+					  	</div>
+				  	<div>
+						<label for="exampleInputEmail1">Email address</label>
+						<input type="email" class="form-control" name="email">
+						
+				  	</div>
+				  	<div class="form-group">
+					    <label for="exampleInputPassword1">Password</label>
+					    <input type="password" class="form-control" name="password">
+				  	</div>
+				  	<button type="submit" class="btn btn-success">Submit</button>
+				</form>
+			</div>
+			<div class="col-md-8">
+				<table class="table table-striped">
+				  <thead>
+				    <tr>
+				      <th scope="col">id</th>
+				      <th scope="col">name</th>
+				      <th scope="col">email</th>
+				      <th scope="col">action</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				  	@foreach($data as $datas)
+				  	<tr>
+				      <th scope="row">{{$datas->id}}</th>
+				      <td>{{$datas->name}}</td>
+				      <td>{{$datas->email}}</td>
+				      <td>
+				      	<a href="{{route('edit', $datas->id)}}" class="btn btn-sm btn-dark">Edit</a>
+				      	<a href="{{route('delete', $datas->id)}}" class="btn btn-sm btn-danger">Delete</a>
+				      </td>
+				    </tr>
+				  	@endforeach
+				  </tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 
 

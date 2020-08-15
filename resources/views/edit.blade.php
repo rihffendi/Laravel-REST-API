@@ -18,7 +18,7 @@
 				<label for="exampleInputEmail1">Email address</label>
 				<input type="email" class="form-control" name="email" value="{{$data->email}}">
 		  	</div>
-		  	<button type="submit" class="btn btn-primary">Submit</button>
+		  	<button type="submit" class="btn btn-success">Submit</button>
 		</form>
 	</div>
 
